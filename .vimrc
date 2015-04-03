@@ -5,6 +5,8 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 set hidden
+set noswapfile
+set nobackup
 set wildmode=list:longest
 set backspace=indent,eol,start
 set tabstop=4 expandtab shiftwidth=2 softtabstop=2
@@ -14,14 +16,20 @@ set number
 set laststatus=2
 set t_Co=256
 set colorcolumn=80 
+colorscheme Monokai
+set clipboard=unnamed
 
 "[leader and key mappings]
 let mapleader=","
-nnoremap <Leader>l :call NumberToggle()<CR>
 inoremap <Leader>w <C-O>:update<CR><Esc>
 nmap <C-B> :CtrlPBuffer<CR>
 map <Leader>. :tabprevious<CR>
 map <Leader>, :tabnext<CR>
+map <Leader>h :bp<CR>
+map <Leader>l :bn<CR>
+map <Leader>c :bd<CR>
+map <Leader>R :RuboCop<CR>
+map <Leader>f <C-w><C-w>
 
 "[search options]
 set incsearch

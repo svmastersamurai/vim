@@ -25,3 +25,6 @@
 [submodule "bundle/vim-chef"]
 	path = bundle/vim-chef
 	url = https://github.com/dougireton/vim-chef.git
+[submodule "bundle/vim-rubocop"]
+	path = bundle/vim-rubocop
+	url = https://github.com/ngmy/vim-rubocop.git
