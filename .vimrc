@@ -1,7 +1,7 @@
 "Dan's Customized Vim!!!
 set nocompatible
-
-execute pathogen#infect()
+source ~/vim/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect("$HOME/vim/bundle/{}")
 syntax on
 filetype plugin indent on
 set hidden
@@ -16,7 +16,6 @@ set number
 set laststatus=2
 set t_Co=256
 set colorcolumn=80 
-colorscheme Monokai
 set clipboard=unnamed
 
 "[leader and key mappings]
