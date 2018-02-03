@@ -1,10 +1,8 @@
 "Dan's Customized Vim!!!
-set encoding=utf-8
-set nocompatible
-source ~/vim/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect("$HOME/vim/bundle/{}")
 syntax on
 filetype plugin indent on
+set nocompatible
+set encoding=utf-8
 set hidden
 set noswapfile
 set nobackup
@@ -24,6 +22,7 @@ autocmd FileType c,cpp,java,php,ruby,ps1 autocmd BufWritePre <buffer> %s/\s\+$//
 
 "[leader and key mappings]
 let mapleader=","
+nnoremap <silent> <C-n> :set relativenumber!<cr>
 inoremap <Leader>w <C-O>:update<CR><Esc>
 nmap <C-B> :CtrlPBuffer<CR>
 map <Leader>. :tabprevious<CR>
@@ -42,58 +41,31 @@ set smartcase
 set hlsearch
 nmap \q nohlsearch<CR>
 
+"[plugins]
+call plug#begin("$HOME/.vim/plugged")
+Plug 'vim-airline/vim-airline-themes'
+Plug 'bling/vim-airline'
+Plug 'flazz/vim-colorschemes'
+Plug 'vim-syntastic/syntastic'
+Plug 'vim-ruby/vim-ruby'
+Plug 'chiel92/vim-autoformat'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mhinz/vim-signify'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'junegunn/vim-easy-align'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'godlygeek/tabular'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'fatih/vim-go', { 'tag': '*' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+call plug#end()
+
 "[airline options]
 let g:airline#extensions#tabline#enable = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'jay'
+let g:airline_theme = 'wombat'
 let g:airline_enable_branch = 1
 let g:airline_enable_syntastic = 1
-
-"[gvim specific settings]
-if has('gui_running')
-  set guioptions-=T  " no toolbar
-  colorscheme monokai
-  if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-  endif
-
-  " unicode symbols
-  let g:airline_left_sep = '»'
-  let g:airline_left_sep = '▶'
-  let g:airline_right_sep = '«'
-  let g:airline_right_sep = '◀'
-  let g:airline_symbols.crypt = '🔒'
-  let g:airline_symbols.linenr = '␊'
-  let g:airline_symbols.linenr = '␤'
-  let g:airline_symbols.linenr = '¶'
-  let g:airline_symbols.maxlinenr = '☰'
-  let g:airline_symbols.maxlinenr = ''
-  let g:airline_symbols.branch = '⎇'
-  let g:airline_symbols.paste = 'ρ'
-  let g:airline_symbols.paste = 'Þ'
-  let g:airline_symbols.paste = '∥'
-  let g:airline_symbols.spell = 'Ꞩ'
-  let g:airline_symbols.notexists = '∄'
-  let g:airline_symbols.whitespace = 'Ξ'
-
-  " powerline symbols
-  let g:airline_left_sep = ''
-  let g:airline_left_alt_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_right_alt_sep = ''
-  let g:airline_symbols.branch = ''
-  let g:airline_symbols.readonly = ''
-  let g:airline_symbols.linenr = ''
-
-  " old vim-powerline symbols
-  let g:airline_left_sep = '⮀'
-  let g:airline_left_alt_sep = '⮁'
-  let g:airline_right_sep = '⮂'
-  let g:airline_right_alt_sep = '⮃'
-  let g:airline_symbols.branch = '⭠'
-  let g:airline_symbols.readonly = '⭤'
-  let g:airline_symbols.linenr = '⭡'
-endif
 
 "[line indentation]
 vnoremap < <gv
