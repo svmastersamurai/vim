@@ -1,4 +1,5 @@
 "Dan's Customized Vim!!!
+
 syntax on
 filetype plugin indent on
 set nocompatible
@@ -41,9 +42,6 @@ set smartcase
 set hlsearch
 nmap \q nohlsearch<CR>
 
-"[platform-specific settings]
-source ~/.vimrc.os
-
 "[plugins]
 call plug#begin("$HOME/.vim/plugged")
 Plug 'vim-airline/vim-airline-themes'
@@ -84,3 +82,4 @@ augroup myvimrc
   au!
   au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
+
