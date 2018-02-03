@@ -41,6 +41,9 @@ set smartcase
 set hlsearch
 nmap \q nohlsearch<CR>
 
+"[platform-specific settings]
+source ~/.vimrc.os
+
 "[plugins]
 call plug#begin("$HOME/.vim/plugged")
 Plug 'vim-airline/vim-airline-themes'
@@ -61,9 +64,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 call plug#end()
 
 "[airline options]
-let g:airline#extensions#tabline#enable = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'wombat'
+let g:airline#extensions#tabline#enable = 1
+let g:airline_theme = 'base16'
 let g:airline_enable_branch = 1
 let g:airline_enable_syntastic = 1
 
