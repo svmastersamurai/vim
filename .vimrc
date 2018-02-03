@@ -19,7 +19,7 @@ set colorcolumn=80
 set clipboard=unnamed
 set ff=unix
 
-autocmd FileType c,cpp,java,php,ruby,ps1 autocmd BufWritePre <buffer> %s/\s\+$//e
+autocmd FileType go,c,cpp,java,php,ruby,ps1 autocmd BufWritePre <buffer> %s/\s\+$//e
 
 "[leader and key mappings]
 let mapleader=","
