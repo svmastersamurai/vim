@@ -18,6 +18,7 @@ set t_Co=256
 set colorcolumn=80 
 set clipboard=unnamed
 set ff=unix
+hi Search ctermbg=DarkBlue
 
 autocmd FileType go,c,cpp,java,php,ruby,ps1 autocmd BufWritePre <buffer> %s/\s\+$//e
 
@@ -59,7 +60,17 @@ Plug 'godlygeek/tabular'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'fatih/vim-go', { 'tag': '*' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 call plug#end()
+
+"[langauge server]
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rls'],
+    \ 'go': [$HOME, 'go', 'bin', 'go-langserver'],
+    \ }
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 "[airline options]
 let g:airline_powerline_fonts = 1
